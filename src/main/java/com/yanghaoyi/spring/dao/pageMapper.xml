@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanghaoyi.spring.dao.PageMapper">
+
+
+    <select id="queryPageInfoByName" parameterType="String" resultType="com.yanghaoyi.spring.model.PageInfo">
+           select * from page_data where page_name = #{pageName}
+    </select>
+
+    <select id="queryAllPageInfo"  resultType="com.yanghaoyi.spring.model.PageInfo">
+        select * from page_data
+    </select>
+
+
+
+
+    <insert id="updatePageInfoByName" parameterType="PageEntity">
+        update page_data
+        <set>
+            count = #{count} where page_name =#{pageName}
+        </set>
+    </insert>
+
+
+    <insert id="insertPageInfoByName" parameterType="PageEntity">
+        INSERT INTO page_data VALUES(0,#{pageName},#{duration},#{count});
+    </insert>
+
+</mapper>

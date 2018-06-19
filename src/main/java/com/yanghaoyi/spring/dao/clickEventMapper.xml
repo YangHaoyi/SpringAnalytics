@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yanghaoyi.spring.dao.ClickEventMapper">
+
+
+    <select id="queryClickEventByName" parameterType="String" resultType="com.yanghaoyi.spring.model.ClickEvent">
+        select * from click_event where event_name = #{eventName}
+    </select>
+
+    <select id="queryAllClickEvent" resultType="com.yanghaoyi.spring.model.ClickEvent">
+        select *from click_event
+    </select>
+
+
+    <insert id="updateClickEventByName" parameterType="ClickEventEntity">
+        update click_event
+        <set>
+            click_count = #{count} where event_name =#{eventName}
+        </set>
+    </insert>
+
+
+    <insert id="insertClickEventByName" parameterType="ClickEventEntity">
+        INSERT INTO click_event VALUES(0,#{eventName},#{count});
+    </insert>
+
+
+</mapper>
