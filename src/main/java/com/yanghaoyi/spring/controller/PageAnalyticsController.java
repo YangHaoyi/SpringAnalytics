@@ -21,7 +21,7 @@ import java.util.List;
  */
 @Api(tags = "用户统计")
 @RestController
-@RequestMapping(value = "avi/v1/analytics")
+@RequestMapping(value = "api/v1/analytics")
 public class PageAnalyticsController {
 
     @Resource
