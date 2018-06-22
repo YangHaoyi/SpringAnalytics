@@ -8,5 +8,6 @@ import lombok.Data;
 @Data
 public class ClickEventEntity {
     private String eventName;
+    private String otherEvent;
     private int count;
 }

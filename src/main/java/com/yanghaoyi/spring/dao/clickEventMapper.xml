@@ -15,13 +15,15 @@
     <insert id="updateClickEventByName" parameterType="ClickEventEntity">
         update click_event
         <set>
-            click_count = #{count} where event_name =#{eventName}
+            <if test="otherEvent != null">other_event=#{otherEvent},</if>
+            click_count = #{count}
         </set>
+        where event_name =#{eventName}
     </insert>
 
 
     <insert id="insertClickEventByName" parameterType="ClickEventEntity">
-        INSERT INTO click_event VALUES(0,#{eventName},#{count});
+        INSERT INTO click_event VALUES(0,#{eventName},#{otherEvent},#{count});
     </insert>
 
 

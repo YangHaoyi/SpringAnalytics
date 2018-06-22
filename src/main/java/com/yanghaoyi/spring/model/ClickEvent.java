@@ -12,5 +12,6 @@ import lombok.Data;
 @Data
 public class ClickEvent {
     private String eventName;
+    private String otherEvent;
     private int clickCount;
 }

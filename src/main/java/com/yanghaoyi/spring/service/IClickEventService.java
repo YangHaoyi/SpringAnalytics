@@ -24,5 +24,5 @@ public interface IClickEventService {
 
     int updatePageInfoByName(ClickEventEntity clickEventEntity);
 
-    int updatePageInfo(String pageName, int count);
+    int updatePageInfo(String pageName, String otherEvent,int count);
 }

@@ -43,7 +43,7 @@ public class PageAnalyticsController {
     @RequestMapping(value = "/click", method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
     public int updateClickEvent(@RequestBody ClickEvent[] clickEvents) {
         for (ClickEvent clickEvent : clickEvents) {
-            clickEventService.updatePageInfo(clickEvent.getEventName(),clickEvent.getClickCount());
+            clickEventService.updatePageInfo(clickEvent.getEventName(),clickEvent.getOtherEvent(),clickEvent.getClickCount());
         }
         return 0;
     }

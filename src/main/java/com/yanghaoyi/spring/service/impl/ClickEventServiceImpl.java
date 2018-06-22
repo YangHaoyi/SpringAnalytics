@@ -47,16 +47,18 @@ public class ClickEventServiceImpl implements IClickEventService {
     }
 
     @Override
-    public int updatePageInfo(String eventName,int count) {
+    public int updatePageInfo(String eventName,String otherEvent,int count) {
         ClickEvent clickEvent = queryPageInfoByName(eventName);
         if(null!=clickEvent){
             ClickEventEntity clickEventEntity = new ClickEventEntity();
             clickEventEntity.setEventName(eventName);
+            clickEventEntity.setOtherEvent(otherEvent);
             clickEventEntity.setCount(clickEvent.getClickCount()+count);
             updatePageInfoByName(clickEventEntity);
         }else {
             ClickEventEntity clickEventEntity = new ClickEventEntity();
             clickEventEntity.setEventName(eventName);
+            clickEventEntity.setOtherEvent(otherEvent);
             clickEventEntity.setCount(count);
             insertPageInfoByName(clickEventEntity);
         }
